@@ -1,6 +1,8 @@
 @import 'core/variables';
-@import 'core/reset';
-@import 'components/page';
 @import 'components/header';
 @import 'components/main';
 @import 'components/footer';
+
+body {
+  background-color: blue;
+}
