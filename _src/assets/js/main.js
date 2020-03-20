@@ -12,7 +12,7 @@ function getSerieName(ev) {
     .then(response => response.json())
     .then(dataSerie => {
       serieInfo.innerHTML += `<li>${dataSerie.name}</li>`;
-      serieInfo.innerHTML += `<li><img src="${dataSerie.img}" alt="póster de la serie"></li>`;
+      serieInfo.innerHTML += `<li><img src="${dataSerie.image.medium}" alt="póster de la serie"></li>`;
       console.log('holiii');
 
       // estructura para recorrer array en el caso de que la petición a la APOi estuviera estructurada con un array
