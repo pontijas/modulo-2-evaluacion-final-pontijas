@@ -11,7 +11,6 @@ function getSerieName(ev) {
     .then(dataSerie => {
       serieInfo.innerHTML += `<li><h2>${dataSerie.name}</h2></li>`;
       serieInfo.innerHTML += `<li><img src="${dataSerie.image.medium}" alt="póster de la serie"></li>`;
-      console.log('holiii');
       serieInfo.innerHTML += `<li><h3>${dataSerie.genres}</h3></li>`;
       serieInfo.innerHTML += `<li><p>${dataSerie.summary}</p></li>`;
     });
