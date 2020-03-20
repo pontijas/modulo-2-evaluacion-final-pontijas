@@ -2,3 +2,13 @@
 @import 'components/header';
 @import 'components/main';
 @import 'components/footer';
+
+.css-li_serie {
+  color: red;
+  background-color: #fabada;
+  list-style: none;
+  &:hover {
+    border: 3px solid red;
+    cursor: pointer;
+  }
+}
