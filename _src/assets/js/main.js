@@ -1,20 +1,22 @@
 'use strict';
 
-// http://api.tvmaze.com/search/shows?q=
+const serieInput = document.querySelector('.js-search-input');
+const searchBtn = document.querySelector('.js-search-btn');
+let series = [];
 
 // get data
 
-const serieInput = document.querySelector('.js-search-input');
-const searchBtn = document.querySelector('.js-search-btn');
-
 function getData(ev) {
   ev.preventDefault();
-  console.log('holiii');
   fetch(` http://api.tvmaze.com/search/shows?q=${serieInput.value}`)
     .then(response => response.json())
     .then(dataSerie => {
-      console.log(dataSerie);
+      // guardamos los datos en un array
+      series = dataSerie;
+      console.log(series);
     });
 }
+
+// paint data
 
 searchBtn.addEventListener('click', getData);
