@@ -25,8 +25,8 @@ function setHtmlCode() {
   let htmlCode = '';
   htmlCode += `<article class="css-card">`;
   htmlCode += `<h2>hola mundo</h2>`;
-  htmlCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película"`;
-  htmlCode += `<article>`;
+  htmlCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película">`;
+  htmlCode += `</article>`;
   // console.log(series);
   return htmlCode;
 }
