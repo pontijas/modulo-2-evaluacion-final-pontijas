@@ -10,7 +10,7 @@ const searchBtn = document.querySelector('.js-search-btn');
 function getData(ev) {
   ev.preventDefault();
   console.log('holiii');
-  fetch(`http://api.tvmaze.com/singlesearch/shows?q=friends`)
+  fetch(` http://api.tvmaze.com/search/shows?q=${serieInput.value}`)
     .then(response => response.json())
     .then(dataSerie => {
       console.log(dataSerie);
