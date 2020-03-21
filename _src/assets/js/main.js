@@ -16,36 +16,32 @@ let favSeries = [];
 
 function getData(ev) {
   ev.preventDefault();
-  // console.log(serieInput.value);
+  console.log(serieInput.value);
   fetch(`http://api.tvmaze.com/search/shows?q=${serieInput.value}`)
     .then(response => response.json())
     .then(dataSerie => {
       series = dataSerie;
-      paintCards();
     });
+  dataCode();
 }
 
 // paint data
 
-function paintCards() {
+function dataCode() {
   for (const serie of series) {
     let htmlCode = '';
     htmlCode += `<article class="css-card js-serie-card">`;
     htmlCode += `<h2>${serie.show.name}</h2>`;
     htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la serie"`;
     htmlCode += `</article>`;
-    seriesDisplay.innerHTML += htmlCode;
+    htmlCode.innerHTML = seriesDisplay;
+  }
+}
+
+function paintData() {
+  for (let serie = 0; serie < series.length; serie++) {
+    htmlCode.innerHTML = series[0];
   }
 }
 
 btnSearch.addEventListener('click', getData);
-
-// add to favorites
-
-const serieCardBtns = document.querySelectorAll('.js-serie-card');
-//   console.log(serieCardBtns);
-function addToFavorites() {
-  console.log('me han clickado');
-}
-
-serieCardBtns.addEventListener('click', addToFavorites);
