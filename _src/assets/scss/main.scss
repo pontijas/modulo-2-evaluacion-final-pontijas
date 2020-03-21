@@ -3,6 +3,25 @@
 @import 'components/main';
 @import 'components/footer';
 
+.main__container {
+  display: flex;
+}
+
+.grid__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.search__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-series__container {
+  width: 20vw;
+}
+
 .css-card {
   color: red;
   background-color: #fabada;

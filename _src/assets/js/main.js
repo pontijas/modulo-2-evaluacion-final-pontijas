@@ -12,7 +12,7 @@ const favSeriesList = document.querySelector('.js-fav-list');
 let series = [];
 let favSeries = [];
 
-// functions
+// get data from API
 
 function getData(ev) {
   ev.preventDefault();
@@ -21,14 +21,16 @@ function getData(ev) {
     .then(response => response.json())
     .then(dataSerie => {
       series = dataSerie;
-      paintData();
+      paintCards();
     });
 }
 
-function paintData() {
+// paint data
+
+function paintCards() {
   for (const serie of series) {
     let htmlCode = '';
-    htmlCode += `<article class="css-card">`;
+    htmlCode += `<article class="css-card js-serie-card">`;
     htmlCode += `<h2>${serie.show.name}</h2>`;
     htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la serie"`;
     htmlCode += `</article>`;
@@ -39,10 +41,11 @@ function paintData() {
 btnSearch.addEventListener('click', getData);
 
 // add to favorites
-const liSerie = document.querySelector('.js-li-serie');
 
+const serieCardBtns = document.querySelectorAll('.js-serie-card');
+//   console.log(serieCardBtns);
 function addToFavorites() {
   console.log('me han clickado');
 }
 
-liSerie.addEventListener('click', addToFavorites);
+serieCardBtns.addEventListener('click', addToFavorites);
