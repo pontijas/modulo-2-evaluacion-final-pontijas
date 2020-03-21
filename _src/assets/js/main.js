@@ -39,13 +39,3 @@ function paintCards() {
 }
 
 btnSearch.addEventListener('click', getData);
-
-// add to favorites
-
-const serieCardBtns = document.querySelectorAll('.js-serie-card');
-//   console.log(serieCardBtns);
-function addToFavorites() {
-  console.log('me han clickado');
-}
-
-serieCardBtns.addEventListener('click', addToFavorites);
