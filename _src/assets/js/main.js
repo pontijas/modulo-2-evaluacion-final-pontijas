@@ -93,6 +93,8 @@ function addFavSerie(event) {
   console.log('rebingo', favSerie);
   // añadimos la serie seleccionada como favorita al array de favSeries
   favSeries.push(favSerie);
+  console.log('esto es favSerie', favSerie);
+
   console.log('wee', favSeries);
   getFavListCode();
 }
@@ -104,10 +106,10 @@ const favList = document.querySelector('.js-fav-list');
 function getFavListCode() {
   for (const favSerie of favSeries) {
     let favListCode = '';
-    favListCode += `<li>`;
+    favListCode += `<li class="css-fav-li">`;
     favListCode += `<h3>${favSerie.name}</h3>`;
-    favListCode += `<img src="${favSerie.image}" alt="póster de la serie">`;
-    favListCode += `<button>Quitar</button>`;
+    favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie">`;
+    favListCode += `<button class="css-clear-btn">Quitar</button>`;
     favListCode += `</li>`;
     return (favList.innerHTML = favListCode);
   }
