@@ -75,11 +75,12 @@ function addFavSerie(event) {
   // hemos identificado el objeto clickado y nos quedamos con esa info
   // console.log(event.currentTarget.dataset.id);
   // guardamos la información del elemento clickado en una constante
-  const clickedId = event.currentTarget.dataset.id;
+  const clickedId = parseInt(event.currentTarget.dataset.id);
   console.log('el id clickado es', clickedId);
   // vamos a recorrer el array para quedarnos con los id que coincidan
+  // declaramos fav serie fuera del for porque lo queremos reutilizar después
+  let favSerie;
   for (const serie of series) {
-    let favSerie;
     console.log('holiii', serie.show);
     // serie.show me escribe todas las series guardadas en el arrays series, ahora necesito que se quede con la que tiene el id igual
     if (serie.show.id === clickedId) {
@@ -87,5 +88,29 @@ function addFavSerie(event) {
       favSerie = serie.show;
       console.log('bingo', favSerie);
     }
+  }
+  // ahora me interesa que los objetos favSerie los vaya metiendo en el array favSeries que declaré al principio
+  console.log('rebingo', favSerie);
+  // añadimos la serie seleccionada como favorita al array de favSeries
+  favSeries.push(favSerie);
+  console.log('esto es favSerie', favSerie);
+
+  console.log('wee', favSeries);
+  getFavListCode();
+}
+
+// paint favorite series list
+
+const favList = document.querySelector('.js-fav-list');
+
+function getFavListCode() {
+  for (const favSerie of favSeries) {
+    let favListCode = '';
+    favListCode += `<li class="css-fav-li">`;
+    favListCode += `<h3>${favSerie.name}</h3>`;
+    favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie">`;
+    favListCode += `<button class="css-clear-btn">Quitar</button>`;
+    favListCode += `</li>`;
+    return (favList.innerHTML = favListCode);
   }
 }

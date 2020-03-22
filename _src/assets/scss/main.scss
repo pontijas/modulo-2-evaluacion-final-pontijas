@@ -1,9 +1,8 @@
 @import 'core/variables';
 @import 'components/header';
-@import 'components/main';
-@import 'components/footer';
 
 .main__container {
+  font-family: $mainFont;
   display: flex;
 }
 
@@ -23,11 +22,22 @@
 }
 
 .css-card {
-  color: red;
-  background-color: #fabada;
+  color: $showyColor;
+  background-color: $brightColor;
   list-style: none;
   &:hover {
-    border: 3px solid red;
+    border: 3px solid $showyColor;
     cursor: pointer;
   }
+}
+
+.css-fav-li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.css-clear-btn {
+  margin: 10px 0px;
 }
