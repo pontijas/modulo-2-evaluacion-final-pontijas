@@ -20,12 +20,12 @@ function getData(ev) {
 
 // paint data
 
-function setHtmlCode() {
+function setHtmlCode(serie) {
   // esta función va a recorrer los objetos contenidos dentro de array series
   let htmlCode = '';
-  htmlCode += `<article class="css-card">`;
-  htmlCode += `<h2>hola mundo</h2>`;
-  htmlCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película">`;
+  htmlCode += `<article class="js-add-fav css-card">`;
+  htmlCode += `<h2>${serie.show.name}</h2>`;
+  htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
   htmlCode += `</article>`;
   // console.log(series);
   return htmlCode;
@@ -38,7 +38,16 @@ const paintCards = () => {
     seriesCode += setHtmlCode(serie);
   }
   seriesDisplay.innerHTML = seriesCode;
-  console.log(series);
+  listenAddFavBtn();
 };
 
 searchBtn.addEventListener('click', getData);
+
+// add to favorites
+
+// listen to buttons in previously generated htmlCode
+
+function listenAddFavBtn() {
+  const addFavBtn = document.querySelectorAll('.js-add-fav ');
+  console.log(addFavBtn, 'holii');
+}
