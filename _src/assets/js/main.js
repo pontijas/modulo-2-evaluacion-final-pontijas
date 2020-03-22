@@ -23,7 +23,7 @@ function getData(ev) {
 function setHtmlCode(serie) {
   // esta función va a recorrer los objetos contenidos dentro de array series
   let htmlCode = '';
-  htmlCode += `<article class="js-add-fav css-card">`;
+  htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
   htmlCode += `<h2>${serie.show.name}</h2>`;
   htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
   htmlCode += `</article>`;
@@ -48,7 +48,7 @@ searchBtn.addEventListener('click', getData);
 // listen to buttons in previously generated htmlCode
 
 function listenAddFavBtn() {
-  const addFavBtns = document.querySelectorAll('.js-add-fav ');
+  const addFavBtns = document.querySelectorAll('.js-add-fav');
   // recorremos el array donde está la información del código generado, para poder trabajar con cada objeto individualmente
   for (const favBtn of addFavBtns) {
     // le añadimos un add event listener a los botones creados
@@ -56,6 +56,6 @@ function listenAddFavBtn() {
   }
 }
 
-function addFavSerie() {
-  console.log('han clickado en una serie');
+function addFavSerie(event) {
+  console.log('evento', event.currentTarget, event.currentTarget.dataset);
 }
