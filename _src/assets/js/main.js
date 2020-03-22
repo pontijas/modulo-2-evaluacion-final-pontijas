@@ -48,6 +48,14 @@ searchBtn.addEventListener('click', getData);
 // listen to buttons in previously generated htmlCode
 
 function listenAddFavBtn() {
-  const addFavBtn = document.querySelectorAll('.js-add-fav ');
-  console.log(addFavBtn, 'holii');
+  const addFavBtns = document.querySelectorAll('.js-add-fav ');
+  // recorremos el array donde está la información del código generado, para poder trabajar con cada objeto individualmente
+  for (const favBtn of addFavBtns) {
+    // le añadimos un add event listener a los botones creados
+    favBtn.addEventListener('click', addFavSerie);
+  }
+}
+
+function addFavSerie() {
+  console.log('han clickado en una serie');
 }
