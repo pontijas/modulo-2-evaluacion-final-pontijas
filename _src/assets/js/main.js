@@ -1,9 +1,15 @@
 'use strict';
 
+// global variables
+
 const serieInput = document.querySelector('.js-search-input');
 const searchBtn = document.querySelector('.js-search-btn');
 const seriesDisplay = document.querySelector('.js-search-display');
+
+// arrays
+
 let series = [];
+let favSeries = [];
 
 // get data
 
@@ -23,10 +29,18 @@ function getData(ev) {
 function setHtmlCode(serie) {
   // esta función va a recorrer los objetos contenidos dentro de array series
   let htmlCode = '';
-  htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
-  htmlCode += `<h2>${serie.show.name}</h2>`;
-  htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
-  htmlCode += `</article>`;
+
+  if (serie.show.image === null) {
+    htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
+    htmlCode += `<h2>${serie.show.name}</h2>`;
+    htmlCode += `<img src=https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película">`;
+    htmlCode += `</article>`;
+  } else {
+    htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
+    htmlCode += `<h2>${serie.show.name}</h2>`;
+    htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
+    htmlCode += `</article>`;
+  }
   // console.log(series);
   return htmlCode;
 }
@@ -57,5 +71,21 @@ function listenAddFavBtn() {
 }
 
 function addFavSerie(event) {
-  console.log('evento', event.currentTarget, event.currentTarget.dataset);
+  // console.log('evento', event.currentTarget, event.currentTarget.dataset);
+  // hemos identificado el objeto clickado y nos quedamos con esa info
+  // console.log(event.currentTarget.dataset.id);
+  // guardamos la información del elemento clickado en una constante
+  const clickedId = event.currentTarget.dataset.id;
+  console.log('el id clickado es', clickedId);
+  // vamos a recorrer el array para quedarnos con los id que coincidan
+  for (const serie of series) {
+    let favSerie;
+    console.log('holiii', serie.show);
+    // serie.show me escribe todas las series guardadas en el arrays series, ahora necesito que se quede con la que tiene el id igual
+    if (serie.show.id === clickedId) {
+      // si el id del serie.show coincide con clickedId entonces favSerie tiene el valor de serie.show
+      favSerie = serie.show;
+      console.log('bingo', favSerie);
+    }
+  }
 }
