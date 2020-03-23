@@ -121,6 +121,8 @@ function getFavListCode() {
       favListCode += `<button class="css-clear-btn">Quitar</button>`;
       favListCode += `</li>`;
     }
-    return (favList.innerHTML = favListCode);
+    console.log('esto es favListCode', favListCode);
+
+    return (favList.innerHTML += favListCode);
   }
 }
