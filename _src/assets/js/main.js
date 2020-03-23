@@ -119,7 +119,7 @@ function getFromLocalStorage() {
   // si el stored data es diferente de null (si es la primera vez que la usuaria arraca la pagina entonces es null, no hay info ahi)
   if (storedData !== null) {
     favSeries = JSON.parse(storedData);
-    paintCards();
+    paintFavSeriesList();
   }
 }
 
