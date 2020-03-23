@@ -104,6 +104,7 @@ function paintFavSeriesList() {
   for (const favSerie of favSeries) {
     favList.innerHTML += getFavListCode(favSerie);
   }
+  fav;
 }
 
 // local storage
@@ -116,7 +117,6 @@ function setInLocalStorage() {
 function getFromLocalStorage() {
   const storedData = localStorage.getItem('favSeries');
   console.log('Esto es storedData', storedData);
-  // si el stored data es diferente de null (si es la primera vez que la usuaria arraca la pagina entonces es null, no hay info ahi)
   if (storedData !== null) {
     favSeries = JSON.parse(storedData);
     paintFavSeriesList();
