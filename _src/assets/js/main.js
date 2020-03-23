@@ -64,19 +64,62 @@ function listenAddFavBtn() {
   }
 }
 
+// -------------------------------------------------------------------
+
+// esta función añade el objeto 'serie' al array favSeries con el método push
+
 function addFavSerie(event) {
   const clickedId = parseInt(event.currentTarget.dataset.id);
 
-  let favSerie;
-  for (const serie of series) {
-    if (serie.show.id === clickedId) {
-      favSerie = serie.show;
+  // isInFav es false >> partimos de la base de que la serie no está añadida en favSeries
+  let isInFav = false;
+  // necesitamos encontrar el índice donde se encuentra la serie que queremos añadir a favSeries
+  let favIndex;
+  // le pedimos que lo busque en el array
+  for (const serie of favSeries) {
+    if (serie.id === clickedId) {
+      isInFav = true;
+      // favIndex = ¿?
     }
   }
-  favSeries.push(favSerie);
+
+  // console.log(favIndex);
+
+  if (isInFav) {
+    // si isInFav (isInFav es false>> si no está en el array)
+    // splice
+    // buscalo en mdn splice
+    // necesitas el índice de la serie dentro favSeries
+  } else {
+    let favSerie;
+    for (const serie of series) {
+      if (serie.show.id === clickedId) {
+        favSerie = serie.show;
+      }
+    }
+    favSeries.push(favSerie);
+  }
+
+  paintCards();
   paintFavSeriesList();
   setInLocalStorage();
 }
+
+// function addFavSerie(event) {
+//   const clickedId = parseInt(event.currentTarget.dataset.id);
+
+//   let favSerie;
+//   for (const serie of series) {
+//     if (serie.show.id === clickedId) {
+//       favSerie = serie.show;
+//     }
+//   }
+//   favSeries.push(favSerie);
+//   paintFavSeriesList();
+//   setInLocalStorage();
+// }
+
+// -------------------------------------------------------------------
 
 // paint favorite series list
 
