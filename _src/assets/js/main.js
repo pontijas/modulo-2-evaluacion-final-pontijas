@@ -86,13 +86,13 @@ function getFavListCode(favSerie) {
   if (favSerie.image === null) {
     favListCode += `<li class="css-fav-li">`;
     favListCode += `<h3>${favSerie.name}</h3>`;
-    favListCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la serie">`;
+    favListCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la serie" class="css-fav-img">`;
     favListCode += `<button class="css-clear-btn">Quitar</button>`;
     favListCode += `</li>`;
   } else {
     favListCode += `<li class="css-fav-li">`;
     favListCode += `<h3>${favSerie.name}</h3>`;
-    favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie">`;
+    favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie" class="css-fav-img">`;
     favListCode += `<button class="css-clear-btn">Quitar</button>`;
     favListCode += `</li>`;
   }
