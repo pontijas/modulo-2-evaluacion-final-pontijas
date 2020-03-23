@@ -18,6 +18,25 @@
   flex-direction: column;
 }
 
+.css-input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid $showyColor;
+}
+
+.css-search-btn {
+  margin: 10px 0px;
+  padding: 5px 10px;
+  font-weight: 700;
+  color: $showyColor;
+  background-color: $brightColor;
+  border: 2px solid $showyColor;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .fav-series__container {
   width: 20vw;
 }
@@ -25,6 +44,8 @@
 .css-card {
   color: $showyColor;
   background-color: $brightColor;
+  border: 3px solid $brightColor;
+  border-radius: 10px;
   text-align: center;
   list-style: none;
   &:hover {
@@ -42,4 +63,13 @@
 
 .css-clear-btn {
   margin: 10px 0px;
+  padding: 5px 10px;
+  font-weight: 700;
+  color: $showyColor;
+  background-color: $brightColor;
+  border: 2px solid $showyColor;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
 }
