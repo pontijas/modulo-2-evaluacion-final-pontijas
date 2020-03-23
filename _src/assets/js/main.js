@@ -104,7 +104,6 @@ function paintFavSeriesList() {
   for (const favSerie of favSeries) {
     favList.innerHTML += getFavListCode(favSerie);
   }
-  fav;
 }
 
 // local storage
