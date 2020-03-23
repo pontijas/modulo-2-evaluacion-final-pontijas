@@ -29,17 +29,17 @@ function getData(ev) {
 function setHtmlCode(serie) {
   let htmlCode = '';
 
+  htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
+  htmlCode += `<h3>${serie.show.name}</h3>`;
+
   if (serie.show.image === null) {
-    htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
-    htmlCode += `<h3>${serie.show.name}</h3>`;
     htmlCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película">`;
-    htmlCode += `</article>`;
   } else {
-    htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
-    htmlCode += `<h3>${serie.show.name}</h3>`;
     htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
-    htmlCode += `</article>`;
   }
+
+  htmlCode += `</article>`;
+
   return htmlCode;
 }
 

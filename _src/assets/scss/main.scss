@@ -61,6 +61,11 @@
   align-items: flex-start;
 }
 
+.js-is-fav {
+  color: $brightColor;
+  background-color: $showyColor;
+}
+
 .css-fav-img {
   height: 200px;
 }
