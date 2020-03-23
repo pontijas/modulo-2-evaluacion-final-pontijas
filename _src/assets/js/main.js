@@ -32,12 +32,12 @@ function setHtmlCode(serie) {
 
   if (serie.show.image === null) {
     htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
-    htmlCode += `<h2>${serie.show.name}</h2>`;
+    htmlCode += `<h3>${serie.show.name}</h3>`;
     htmlCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la película">`;
     htmlCode += `</article>`;
   } else {
     htmlCode += `<article class="js-add-fav css-card" data-id="${serie.show.id}">`;
-    htmlCode += `<h2>${serie.show.name}</h2>`;
+    htmlCode += `<h3>${serie.show.name}</h3>`;
     htmlCode += `<img src="${serie.show.image.medium}" alt="póster de la película">`;
     htmlCode += `</article>`;
   }
@@ -95,32 +95,40 @@ function addFavSerie(event) {
   favSeries.push(favSerie);
 
   console.log('esto es favSerie', favSerie);
-  console.log('esto es el array que contiene cada favSerie', favSeries);
+  console.log('esto es favSeries el array que contiene cada favSerie', favSeries);
 
-  getFavListCode();
+  paintFavSeriesList();
 }
 
 // paint favorite series list
 
 const favList = document.querySelector('.js-fav-list');
 
-function getFavListCode() {
-  for (const favSerie of favSeries) {
-    let favListCode = '';
+function getFavListCode(favSerie) {
+  let favListCode = '';
 
-    if (favSerie.image === null) {
-      favListCode += `<li class="css-fav-li">`;
-      favListCode += `<h3>${favSerie.name}</h3>`;
-      favListCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la serie">`;
-      favListCode += `<button class="css-clear-btn">Quitar</button>`;
-      favListCode += `</li>`;
-    } else {
-      favListCode += `<li class="css-fav-li">`;
-      favListCode += `<h3>${favSerie.name}</h3>`;
-      favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie">`;
-      favListCode += `<button class="css-clear-btn">Quitar</button>`;
-      favListCode += `</li>`;
-    }
-    return (favList.innerHTML = favListCode);
+  if (favSerie.image === null) {
+    favListCode += `<li class="css-fav-li">`;
+    favListCode += `<h3>${favSerie.name}</h3>`;
+    favListCode += `<img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="póster de la serie">`;
+    favListCode += `<button class="css-clear-btn">Quitar</button>`;
+    favListCode += `</li>`;
+  } else {
+    favListCode += `<li class="css-fav-li">`;
+    favListCode += `<h3>${favSerie.name}</h3>`;
+    favListCode += `<img src="${favSerie.image.medium}" alt="póster de la serie">`;
+    favListCode += `<button class="css-clear-btn">Quitar</button>`;
+    favListCode += `</li>`;
+  }
+  console.log('esto es favListCode', favListCode);
+
+  return favListCode;
+  // (favList.innerHTML += favListCode);
+}
+
+function paintFavSeriesList() {
+  favList.innerHTML = '';
+  for (const favSerie of favSeries) {
+    favList.innerHTML += getFavListCode(favSerie);
   }
 }
